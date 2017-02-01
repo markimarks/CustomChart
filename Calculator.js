@@ -21,7 +21,8 @@ Ext.define('Calculator', {
             if(this.calculationType === 'count') {
                 seriesData = _.map(data, function(value, key) {
                     return [key, value.length];
-                });
+                },
+                console.log("series data in if statement",seriesData));
             } else {
                 seriesData = _.map(data, function(value, key) {
                     var valueTotal = _.reduce(value, function(total, r) {
