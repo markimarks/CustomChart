@@ -41,7 +41,7 @@
     },
 
     prepareChartData: function(store) {
-        var data = this._groupData(store),
+        var data = this._(store),
         categories = _.keys(data),
         seriesData;
 
@@ -115,7 +115,7 @@
         }
     },
 
-    _groupData: function(store) {
+    _: function(store) {
         if (store.model.getField(this.field).getType() === 'collection') {
             var groups = {};
             _.each(store.getRange(), function(record) {

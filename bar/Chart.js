@@ -28,7 +28,7 @@ Ext.define('BarChart', {
                 bar: {
                     stacking: 'normal',
                     dataLabels: {
-                        enabled: true  //mls what happens if I change this?
+                        enabled: false
                     },
                     showInLegend: true,
                     colorByPoint: false
