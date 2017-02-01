@@ -41,7 +41,7 @@
     },
 
     prepareChartData: function(store) {
-        var data = this._(store),
+        var data = this._groupData(store),
         categories = _.keys(data),
         seriesData;
 
@@ -115,7 +115,7 @@
         }
     },
 
-    _: function(store) {
+    _groupData: function(store) {
         if (store.model.getField(this.field).getType() === 'collection') {
             var groups = {};
             _.each(store.getRange(), function(record) {
@@ -203,7 +203,7 @@
                 bar: {
                     stacking: 'normal',
                     dataLabels: {
-                        enabled: true  //mls what happens if I change this?
+                        enabled: false
                     },
                     showInLegend: true,
                     colorByPoint: false
@@ -444,7 +444,8 @@
                         combo.store.filterBy(function (record) {
                             var field = record.get('fieldDefinition'),
                                 attr = field.attributeDefinition,
-                                whiteList = ['Tags', 'Milestones'];
+ //original-mls                               whiteList = ['Tags', 'Milestones'];
+                                 whiteList = ['Tags', 'Milestones']; //new mls
                             return attr && !attr.Hidden && (((attr.AttributeType !== 'COLLECTION' || field.isMultiValueCustom()) &&
                                 !field.isMappedFromArtifact) || _.contains(whiteList, field.name));
                         });
