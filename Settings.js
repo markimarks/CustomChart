@@ -100,8 +100,8 @@ Ext.define('Settings', {
                         combo.store.filterBy(function (record) {
                             var field = record.get('fieldDefinition'),
                                 attr = field.attributeDefinition,
- //original-mls                               whiteList = ['Tags', 'Milestones'];
-                                 whiteList = ['Milestones']; //new mls
+                                whiteList = ['Tags', 'Milestones'];
+
                             return attr && !attr.Hidden && (((attr.AttributeType !== 'COLLECTION' || field.isMultiValueCustom()) &&
                                 !field.isMappedFromArtifact) || _.contains(whiteList, field.name));
                         });

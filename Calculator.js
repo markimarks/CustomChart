@@ -15,6 +15,7 @@ Ext.define('Calculator', {
         var data = this._groupData(store),
         categories = _.keys(data),
         seriesData;
+        console.log("here is the series data",categories);
 
         if (!this.stackField) {
             if(this.calculationType === 'count') {
